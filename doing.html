@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>This Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <h1>Make sure to view the console to see the action!</h1>
+    <p id="wins">Wins: 9</p>
+    <script type="text/javascript">
+        // var game = {
+        //     wins: 0,
+        //     losses: 0,
+        //     guess_left: 9,
+        //     yourguessList: [],
+        //     calulateWins: function () {
+        //         this.wins = this.wins + 1;
+
+        //     },
+        //     calulateLossses: function () {
+        //         this.losses = this.losses + 1;
+        //     },
+        //     calulateGuesses: function () {
+
+        //         this.guess_left = this.guess_left - 1;
+        //         console.log(this.guess_left);
+        //     },
+        //     guessList: function () {
+
+        //         // this.yourguessList = this.yourguessList
+        //     }
+        // }
+        $(document).ready(function () {
+
+
+            // function reWriteStats() {
+            //     console.log("Wins: " + game.wins);
+            //     console.log("Loss: " + game.losses);
+            //     console.log("guess:" + game.guess_left);
+            //     console.log("Your: " + game.yourguessList);
+            //     console.log("calulateWins: " + game.calulateWins);
+            //     console.log("------------------------------");
+            // }
+
+            // $("*").keyup("click", function () {
+            //     game.calulateGuesses;
+            //     var f = game.guess_left - 1;
+            //     $("#wins").text("Wins: " + f);
+            //     alert(f);
+
+            // });
+
+            $("*").keyup("click", function (e) {
+
+                if (!(e.which < 64 || e.which > 90)) {
+                    $("#test").text("Test Char: " + e.key);
+                    $("#choose").text("");
+                    var myGuess = 's';
+                    var computerGuess = "p";
+                    if (myGuess != computerGuess) {
+                        remaining_guessesCounter--;
+                        $('#loop_counter').text("Guesses Left and loop counter: " + remaining_guessesCounter);
+                    }
+                } else {
+                    if (e.which === 32) {
+                        $("#choose").text("Space is Envaild choice." + e.which);
+
+                    } else {
+                        $("#choose").text(e.key + " is Envaild choice.");
+                    }
+                }
+            });
+
+            $("#win").on("click", function () {
+                winCounter++;
+                console.
+                $("#win").text("Wins: " + winCounter);
+            });
+            $("#losses").on("click", function () {
+                LossesCounter++;
+                $("#Losses").text("Losses: " + lossesCounter);
+            });
+            $("#remaining_guesses").on("click", function () {
+                // remaining_guessesCounter--;
+                $("#remaining_guesses").text("Guesses Left: " + remaining_guessesCounter);
+            });
+            $("#your_guesses").on("click", function () {
+                $("#Losses").text("Your guesses so far: " + your_guesses);
+            });
+
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // $(document).ready(function () {
+
+            // $("#losses").on("click", function () {
+            //     LossesCounter++;
+            //     $("#Losses").text("Losses: " + lossesCounter);
+            // });
+            // $("#remaining_guesses").on("click", function () {
+            //     // remaining_guessesCounter--;
+            //     $("#remaining_guesses").text("Guesses Left: " + remaining_guessesCounter);
+            // });
+            // $("#your_guesses").on("click", function () {
+            //     $("#Losses").text("Your guesses so far: " + your_guesses);
+            // });
+
+        // });
+    </script>
+</body>
+
+</html>

@@ -27,14 +27,10 @@ $(document).ready(function () {
                 $("#test").text("Computer's random letter:" + random_comuter_choice);
             }
 
-
-
             my_guesses = []
             remaining_guessesCounter = 9;
             $("#my_guesses").text("Your guesses so far: " + my_guesses);
             $("#remaining_guesses").text("Guesses Left: " + remaining_guessesCounter);
-
-
 
         }
     });

@@ -1,28 +1,40 @@
 $(document).ready(function () {
     var remaining_guessesCounter = 9;
+    var wins = 0;
+    var losts = 0;
     var my_guesses = []
-    var c = 65;
-    console.log(Math.floor((Math.random() * 25) + 65));
+    var random_comuter_choice = Math.floor((Math.random() * 25) + 65);
 
     $(document).keyup(function (e) {
-
-        if (c === e.keyCode) {
-            $("#remaining_guesses").text("Guesses Left: " + remaining_guessesCounter);
-        }
-
         remaining_guessesCounter--;
-        if (c !== e.keyCode && remaining_guessesCounter >= 1) {
-            console.log("Nope");
+        if (random_comuter_choice !== e.keyCode && remaining_guessesCounter >= 1) {
             my_guesses.push(e.key) + ",";
-            $("#remaining_guesses").text("Guesses Left: " + remaining_guessesCounter);
             $("#my_guesses").text("Your guesses so far: " + my_guesses);
+            $("#remaining_guesses").text("Guesses Left: " + remaining_guessesCounter);
+
             console.log(remaining_guessesCounter);
         } else {
-            console.log("Yep");
+
+            if (random_comuter_choice === e.keyCode) {
+                wins++;
+                $("#wins").text("Wins: " + wins);
+                random_comuter_choice = Math.floor((Math.random() * 25) + 65);
+                $("#test").text("Computer's random letter:" + random_comuter_choice);
+            } else {
+                losts++;
+                $("#losses").text("Losses: " + losts);
+                random_comuter_choice = Math.floor((Math.random() * 25) + 65);
+                $("#test").text("Computer's random letter:" + random_comuter_choice);
+            }
+
+
+
             my_guesses = []
             remaining_guessesCounter = 9;
             $("#my_guesses").text("Your guesses so far: " + my_guesses);
             $("#remaining_guesses").text("Guesses Left: " + remaining_guessesCounter);
+
+
 
         }
     });
